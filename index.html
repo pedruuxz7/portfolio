@@ -1,61 +1,122 @@
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Pedro Amorim | Portfólio</title>
-  <link rel="stylesheet" href="style.css" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
+  <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: "Poppins", sans-serif; }
+    body { background: #0b0d11; color: #dcdfe3; line-height: 1.6; }
+
+    header.hero {
+      text-align: center; 
+      padding: 70px 20px; 
+      background: linear-gradient(135deg, #0a0f1a, #162032); 
+      color: #fff; 
+      box-shadow: 0 4px 15px rgba(0,0,0,0.6); 
+      border-bottom: 1px solid #1f2a3b; 
+    }
+    header.hero h1 { font-size: 2.8rem; margin-bottom: 10px; color: #7aa6ff; }
+    header.hero p { font-size: 1.2rem; margin-bottom: 25px; color: #b5c0d0; }
+
+    .icons { display: flex; justify-content: center; gap: 25px; margin-top: 15px; }
+    .icon { width: 60px; transition: transform 0.3s ease, filter 0.3s ease; filter: brightness(0.8); }
+    .icon:hover { transform: scale(1.15); filter: brightness(1.3) drop-shadow(0 0 10px #1e90ff); }
+
+    section { padding: 70px 20px; max-width: 900px; margin: auto; }
+    section h2 { text-align: center; margin-bottom: 25px; font-size: 2rem; color: #7aa6ff; border-bottom: 2px solid #1e90ff20; display: inline-block; padding-bottom: 8px; }
+    section p { text-align: justify; font-size: 1.1rem; color: #bfc6d1; line-height: 1.8; }
+
+    /* Ajuste do espaçamento do Sobre Mim */
+    section.sobre {
+      margin-bottom: 20px; /* aproxima a próxima seção */
+    }
+
+    .projetos-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; padding-top: 25px; }
+    .card { background: #11151c; padding: 25px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.5); transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease; border: 1px solid #1c2533; }
+    .card:hover { transform: translateY(-5px); box-shadow: 0 8px 18px rgba(0,0,0,0.7); border: 1px solid #1e90ff70; }
+    .card h3 { margin-bottom: 10px; color: #7aa6ff; font-size: 1.3rem; }
+    .card p { margin-bottom: 15px; font-size: 0.95rem; color: #c9d1d9; }
+    .card a, .card-link { display: inline-block; text-decoration: none; color: #fff; background: linear-gradient(135deg, #1e90ff, #0066cc); padding: 10px 16px; border-radius: 8px; transition: background 0.3s ease, transform 0.2s ease; font-weight: 500; }
+    .card a:hover, .card-link:hover { background: linear-gradient(135deg, #4aa3ff, #007bff); transform: scale(1.05); }
+
+    .contato p { text-align: center; font-size: 1.1rem; margin-bottom: 10px; color: #bfc6d1; }
+    .contato a { color: #7aa6ff; text-decoration: none; font-weight: 500; }
+    .contato a:hover { text-decoration: underline; }
+
+    footer { text-align: center; padding: 25px; background: #0a0d13; margin-top: 50px; font-size: 0.9rem; color: #8a94a6; border-top: 1px solid #1f2a3b; }
+
+    @media (max-width:500px){
+      header.hero h1{ font-size:2.2rem; }
+      header.hero p{ font-size:1rem; }
+      .icon{ width:50px; }
+    }
+  </style>
 </head>
 <body>
+
   <header class="hero">
     <h1>Pedro Otávio Amorim de Paula</h1>
     <p>Desenvolvedor Back-End</p>
     <div class="icons">
-      <!-- Java PNG -->
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java" title="Java" class="icon" />
-
-      <!-- C# PNG -->
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" alt="C#" title="C#" class="icon" />
-
-      <!-- PHP PNG -->
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" alt="PHP" title="PHP" class="icon" />
-
-      <!-- Laravel PNG -->
-      <!-- Laravel PNG corrigido -->
-<img src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Laravel.svg" alt="Laravel" title="Laravel" class="icon" />
-
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java" class="icon" />
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" alt="C#" class="icon" />
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" alt="PHP" class="icon" />
+      <img src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Laravel.svg" alt="Laravel" class="icon" />
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="PostgreSQL" class="icon" />
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" alt="Spring" class="icon" />
     </div>
   </header>
 
   <section class="sobre">
     <h2>Sobre Mim</h2>
     <p>
-      Olá! Sou Pedro Otávio, tenho 17 anos e estou iniciando minha trajetória como desenvolvedor.
-
-Tenho interesse e conhecimento em Java (com banco de dados), C# e PHP com Laravel, e estou sempre em busca de aprender e evoluir.
-
-Embora ainda esteja construindo meus primeiros projetos, sou dedicado e motivado por desafios, buscando transformar ideias em soluções reais por meio da programação.
-
-Para mim, programar é mais do que escrever código: é uma oportunidade constante de crescimento, aprendizado e criação.
-
-Estou animado para contribuir com projetos que façam diferença e continuar aprimorando minhas habilidades todos os dias.
+      Olá! Meu nome é <strong>Pedro Amorim</strong>, tenho 17 anos e sou apaixonado por tecnologia e desenvolvimento de software.
+      Atualmente estudo e pratico programação com foco em <strong>Java (com PostgreSQL)</strong>, <strong>C#</strong> e <strong>PHP com Laravel</strong>,
+      explorando desde sistemas desktop, aplicações web modernas e às vezes me aventuro no desenvolvimento mobile e front-end.
+      <br><br>
+      Meu objetivo é evoluir constantemente como desenvolvedor, criando soluções <strong>eficientes, organizadas e escaláveis</strong>,
+      sempre buscando aprender novas tecnologias e aplicar boas práticas de programação.
+      <br><br>
+      Sou proativo, curioso e adoro desafios que me permitem melhorar minhas habilidades e entregar projetos de qualidade.
     </p>
   </section>
 
   <section class="projetos">
     <h2>Projetos</h2>
-    <p>Em breve meus projetos estarão disponíveis aqui...</p>
+    <div class="projetos-container">
+      <div class="card">
+        <h3>Gerenciamento de Cursos</h3>
+        <p>Aplicação em Java com PostgreSQL para gerenciar e cadastrar cursos, alunos e professores, com exportação de relatórios em PDF.</p>
+        <a href="https://github.com/pedruuxz7/GerenciamentoCursos" target="_blank">Ver no GitHub</a>
+      </div>
+
+      <div class="card">
+        <h3>Sistema de Reservas de Salas</h3>
+        <p>Aplicação em Java com PostgreSQL que permite cadastrar usuários, salas e realizar reservas, evitando conflitos de horário entre reservas.</p>
+        <a href="https://github.com/pedruuxz7/SistemaReservas" target="_blank">Ver no GitHub</a>
+      </div>
+    </div>
   </section>
 
   <section class="contato">
     <h2>Contato</h2>
     <p><i class="fa-solid fa-envelope"></i> poapamorim@gmail.com</p>
+
+    <p style="margin-top: 20px;">
+      <a href="CurriculoPedroAmorim.pdf" download class="card-link">📄 Baixar meu Currículo</a>
+    </p>
+
     <p><i class="fa-brands fa-github"></i> <a href="https://github.com/pedruuxz7" target="_blank">github.com/pedruuxz7</a></p>
   </section>
 
   <footer>
     <p>&copy; 2025 Pedro Amorim. Todos os direitos reservados.</p>
   </footer>
+
 </body>
 </html>
