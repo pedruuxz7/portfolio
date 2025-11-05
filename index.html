@@ -20,7 +20,6 @@
       overflow-x: hidden;
     }
 
-    /* ===== NAVBAR ===== */
     nav {
       position: fixed;
       top: 0; left: 0; right: 0;
@@ -63,7 +62,6 @@
       text-shadow: 0 0 8px #1e90ff;
     }
 
-    /* ===== HERO ===== */
     header.hero {
       text-align: center;
       padding: 140px 20px 100px;
@@ -171,6 +169,13 @@
       color: #7aa6ff;
       margin-bottom: 10px;
     }
+    .card p {
+  text-align: center;
+  line-height: 1.5;
+  color: #bfc6d1;
+  margin-bottom: 15px;
+}
+
 
     .card a {
       display: inline-block;
@@ -188,7 +193,6 @@
       transform: scale(1.05);
     }
 
-    /* ===== CONTATO ===== */
     .contato-btns {
       display: flex;
       justify-content: center;
@@ -255,7 +259,6 @@
       margin-top: 50px;
     }
 
-    /* ===== RESPONSIVIDADE ===== */
     @media (max-width: 768px) {
       .btn-social img { width: 26px; height: 26px; }
 
@@ -288,25 +291,30 @@
   </nav>
 
   <header class="hero" id="inicio">
-    <h2>Pedro Otávio Amorim de Paula</h2>
+    <h2>Pedro Otávio Amorim</h2>
     <p id="typing"></p>
 
     <div class="icons">
       <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java" class="icon" />
       <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" alt="C#" class="icon" />
       <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" alt="PHP" class="icon" />
-      <img src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Laravel.svg" alt="Laravel" class="icon" />
       <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="PostgreSQL" class="icon" />
       <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" alt="Spring" class="icon" />
+      <img src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Laravel.svg" alt="Laravel" class="icon" />
+      <img src="https://www.svgrepo.com/show/376369/dotnet.svg" alt="DotNet" class="icon" />
+      <img src="https://www.svgrepo.com/show/374093/sql.svg" alt="SQL" class="icon" />
     </div>
   </header>
 
   <section id="sobre">
     <h2>Sobre Mim</h2>
     <p>
-      Olá! Meu nome é <strong>Pedro Amorim</strong>, tenho 17 anos e sou apaixonado por tecnologia e desenvolvimento de software.
-      Atualmente estudo e pratico programação com foco em <strong>Java (com PostgreSQL)</strong>, <strong>C#</strong> e <strong>PHP com Laravel</strong>,
-      explorando desde sistemas desktop e aplicações web modernas até o desenvolvimento mobile e front-end.
+      Me chamo Pedro Amorim, tenho 17 anos e sou desenvolvedor apaixonado por tecnologia e criação de soluções práticas.
+Trabalho com Java (PostgreSQL), C# e PHP com Laravel, desenvolvendo sistemas e aplicações com foco em desempenho e organização.
+
+Gosto de desafios que me façam evoluir como programador e acredito que um bom código é aquele que é claro, funcional e fácil de manter.
+
+Busco crescer como desenvolvedor backend, sempre aprendendo e aprimorando minhas habilidades em cada novo projeto
       <br><br>
       Meu objetivo é evoluir constantemente como desenvolvedor, criando soluções <strong>eficientes, organizadas e escaláveis</strong>,
       sempre aprendendo novas tecnologias e aplicando boas práticas de programação.
@@ -319,15 +327,30 @@
     <h2>Projetos</h2>
     <div class="projetos-container">
       <div class="card">
-        <h3>Gerenciamento de Cursos</h3>
+        <div style="display:flex;justify-content:space-between;align-items:center;">
+          <h3>Gerenciamento de Cursos</h3>
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java" style="width:30px;height:30px;">
+        </div>
         <p>Aplicação em Java com PostgreSQL para gerenciar e cadastrar cursos, alunos e professores, com exportação de relatórios em PDF.</p>
         <a href="https://github.com/pedruuxz7/GerenciamentoCursos" target="_blank">Ver no GitHub</a>
       </div>
 
       <div class="card">
-        <h3>Sistema de Reservas de Salas</h3>
+        <div style="display:flex;justify-content:space-between;align-items:center;">
+          <h3>Sistema de Reservas de Salas</h3>
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java" style="width:30px;height:30px;">
+        </div>
         <p>Aplicação em Java com PostgreSQL que permite cadastrar usuários, salas e realizar reservas, evitando conflitos de horário entre reservas.</p>
         <a href="https://github.com/pedruuxz7/SistemaReservas" target="_blank">Ver no GitHub</a>
+      </div>
+
+      <div class="card">
+        <div style="display:flex;justify-content:space-between;align-items:center;">
+          <h3>FinanceControl</h3>
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" alt="C#" style="width:30px;height:30px;">
+        </div>
+        <p>Sistema de controle financeiro pessoal em C# e SQLite, com cadastro de receitas e despesas, cálculo de saldo e arquitetura em camadas.</p>
+        <a href="https://github.com/pedruuxz7/FinanceControl" target="_blank">Ver no GitHub</a>
       </div>
     </div>
   </section>
@@ -356,7 +379,6 @@
   </footer>
 
   <script>
-    // Efeito de digitação
     const texto = "Desenvolvedor Back-End";
     let i = 0;
     function digitar() {
@@ -368,7 +390,6 @@
     }
     window.onload = digitar;
 
-    // Mudança de cor da navbar ao rolar
     window.addEventListener('scroll', () => {
       const nav = document.querySelector('nav');
       nav.classList.toggle('scrolled', window.scrollY > 50);
