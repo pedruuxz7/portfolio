@@ -6,189 +6,131 @@
 <title>Pedro Amorim | Portfólio</title>
 
 <link rel="icon" type="image/png" href="favicon.png">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
-:root{
-  --bg-main: radial-gradient(circle at top left,#0b1220,#05070a 70%);
-  --bg-card:#0d1117;
-  --accent:#00d2ff;
-  --accent-glow:rgba(0,210,255,.35);
-  --text:#fff;
-  --text-dim:#94a3b8;
+:root {
+  --bg-main: #05070a;
+  --bg-card: rgba(13, 17, 23, 0.8);
+  --accent: #00d2ff;
+  --accent-glow: rgba(0, 210, 255, 0.3);
+  --text-main: #f8fafc;
+  --text-dim: #94a3b8;
+  --border: rgba(255, 255, 255, 0.08);
 }
 
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:"Inter",sans-serif;
+/* Reset e Base */
+* { margin:0; padding:0; box-sizing:border-box; font-family:"Plus Jakarta Sans", sans-serif; }
+html { scroll-behavior: smooth; }
+body { 
+    background: var(--bg-main); 
+    color: var(--text-main); 
+    overflow-x: hidden;
+    background-image: radial-gradient(circle at 0% 0%, #0b1220 0%, transparent 50%);
 }
 
-html{scroll-behavior:smooth;}
-body{background:var(--bg-main);color:var(--text);overflow-x:hidden;}
-
-/* ===== NAV ===== */
-nav{
-  position:fixed;top:0;width:100%;z-index:1000;
-  display:flex;justify-content:space-between;align-items:center;
-  padding:20px 8%;
-  background:rgba(5,7,10,.75);
-  backdrop-filter:blur(14px);
-  border-bottom:1px solid rgba(255,255,255,.05);
-}
-nav h1{font-size:1.5rem;font-weight:800;color:var(--accent);}
-.nav-links{display:flex;gap:28px;}
-.nav-links a{color:var(--text-dim);text-decoration:none;transition:.3s;}
-.nav-links a:hover{color:var(--accent);}
-
-/* ===== HERO ===== */
-header.hero{
-  min-height:100vh;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:100px 10% 0;
+/* Navegação Refinada */
+nav {
+  position: fixed; top: 0; width: 100%; z-index: 1000;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 20px 8%; background: rgba(5, 7, 10, 0.8);
+  backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
+  border-bottom: 1px solid var(--border);
 }
 
-.hero-text{max-width:520px;}
-.hero-text .small{
-  font-size:1.1rem;color:var(--accent);
-  text-transform:uppercase;letter-spacing:2px;margin-bottom:10px;
+nav h1 { font-size: 1.4rem; font-weight: 800; background: linear-gradient(to right, #fff, var(--accent)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+
+.nav-links { display: flex; gap: 30px; }
+.nav-links a { color: var(--text-dim); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: 0.3s; }
+.nav-links a:hover { color: var(--accent); }
+
+.menu-btn { display: none; font-size: 1.8rem; cursor: pointer; color: var(--accent); }
+
+/* Menu Mobile (Sua lógica original com novo visual) */
+.menu-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.6); backdrop-filter: blur(10px); opacity: 0; pointer-events: none; transition: 0.4s; z-index: 998; }
+.menu-overlay.active { opacity: 1; pointer-events: all; }
+
+.mobile-menu { position: fixed; inset: 0; background: var(--bg-main); display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 30px; transform: translateY(-100%); transition: 0.6s cubic-bezier(0.22, 1, 0.36, 1); z-index: 999; }
+.mobile-menu.active { transform: translateY(0); }
+.mobile-menu a { font-size: 1.5rem; color: #fff; text-decoration: none; font-weight: 700; }
+
+/* Hero Section */
+header.hero {
+  min-height: 100vh; display: flex; align-items: center; justify-content: space-between;
+  padding: 120px 10% 60px; gap: 40px;
 }
-.hero-text h2{font-size:3.8rem;line-height:1.1;}
-.hero-text span{color:var(--accent);text-shadow:0 0 30px var(--accent-glow);}
+.hero-text { max-width: 550px; }
+.hero-text .small { font-size: 0.85rem; color: var(--accent); text-transform: uppercase; letter-spacing: 3px; font-weight: 700; margin-bottom: 10px; }
+.hero-text h2 { font-size: clamp(2.5rem, 5vw, 3.8rem); line-height: 1.1; font-weight: 800; margin-bottom: 15px; }
+.hero-text span { color: var(--accent); text-shadow: 0 0 25px var(--accent-glow); }
 
-#typing{margin-top:18px;font-size:1.4rem;color:var(--text-dim);min-height:1.5em;}
-#typing::after{content:'|';margin-left:5px;color:var(--accent);animation:blink .7s infinite;}
-@keyframes blink{50%{opacity:0;}}
+#typing { font-size: 1.2rem; color: var(--text-dim); min-height: 1.5em; margin-bottom: 25px; }
+#typing::after { content:'|'; margin-left:5px; color:var(--accent); animation:blink .7s infinite; }
+@keyframes blink { 50% { opacity: 0; } }
 
-/* ===== BOTÕES PADRONIZADOS ===== */
+/* Grid de Tecnologias */
+.icons-grid { display: grid; grid-template-columns: repeat(4, 80px); gap: 15px; }
+.tech-box { 
+    width: 80px; height: 80px; background: var(--bg-card); border-radius: 18px;
+    display: flex; align-items: center; justify-content: center;
+    border: 1px solid var(--border); transition: 0.4s;
+}
+.tech-box:hover { transform: translateY(-8px); border-color: var(--accent); box-shadow: 0 10px 20px var(--accent-glow); }
+.tech-box img { width: 40px; }
+
+/* Seções Gerais */
+section { padding: 80px 10%; max-width: 1300px; margin: auto; scroll-margin-top: 100px; }
+.section-title { font-size: 2rem; margin-bottom: 30px; font-weight: 800; display: flex; align-items: center; gap: 15px; }
+.section-title::after { content: ""; height: 1px; background: var(--border); flex: 1; }
+
+.about-box, .experience-box { 
+    background: var(--bg-card); padding: 40px; border-radius: 24px; 
+    border: 1px solid var(--border); color: var(--text-dim); line-height: 1.8;
+}
+.experience-box h3 { color: #fff; margin-bottom: 5px; }
+.company { color: var(--accent); display: block; font-weight: 600; margin-bottom: 5px; }
+.period { font-size: 0.85rem; display: block; margin-bottom: 15px; opacity: 0.8; }
+
+/* Grid de Projetos */
+.projetos-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
+.card { 
+    background: var(--bg-card); padding: 30px; border-radius: 20px; 
+    border: 1px solid var(--border); display: flex; flex-direction: column; transition: 0.4s;
+}
+.card:hover { transform: translateY(-8px); border-color: var(--accent); }
+.card-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
+.card h3 { font-size: 1.2rem; }
+.card p { flex-grow: 1; color: var(--text-dim); margin-bottom: 20px; font-size: 0.95rem; }
+.btn-repo { color: var(--accent); text-decoration: none; font-weight: 600; font-size: 0.9rem; }
+
+/* Botões Estilizados */
 .btn-contact {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  background: var(--bg-card);
-  padding: 12px 25px;
-  border-radius: 50px;
-  color: #fff;
-  text-decoration: none;
-  border: 1px solid rgba(255,255,255,.1);
-  transition: .4s;
-  cursor: pointer;
-  margin-top: 20px; /* Margem para o botão do topo */
+  display: inline-flex; align-items: center; justify-content: center; gap: 12px;
+  background: var(--bg-card); padding: 12px 24px; border-radius: 12px;
+  color: #fff; text-decoration: none; border: 1px solid var(--border); transition: 0.4s;
 }
+.btn-contact:hover { background: #fff; color: #000; transform: translateY(-3px); }
+.btn-contact img { width: 20px; height: 20px; }
 
-.btn-contact img {
-  width: 20px;
-  height: 20px;
-  object-fit: contain;
-}
+.contato-wrapper { display: flex; gap: 15px; flex-wrap: wrap; }
 
-.btn-contact:hover {
-  background: rgba(255,255,255,0.1);
-  transform: translateY(-2px);
-  border-color: var(--accent);
-  box-shadow: 0 0 20px var(--accent-glow);
-}
+/* Footer */
+footer { padding: 50px; text-align: center; color: var(--text-dim); font-size: 0.9rem; border-top: 1px solid var(--border); }
 
-/* Removido o btn-primary que forçava a cor azul */
+/* Reveal Animation */
+.reveal { opacity: 0; transform: translateY(30px); transition: 0.8s; }
+.reveal.active { opacity: 1; transform: none; }
 
-/* ===== ICONS GRID ===== */
-.icons-grid{display:grid;grid-template-columns:repeat(4,75px);gap:20px;}
-.tech-box{
-  width:75px;height:75px;background:#0d1117;border-radius:18px;
-  display:flex;align-items:center;justify-content:center;
-  border:2px solid rgba(255,255,255,.1);transition:.4s;
-}
-.tech-box img{width:38px;filter:grayscale(.2);transition:.4s;}
-.tech-box:hover{transform:translateY(-8px) scale(1.1);}
-.tech-box:hover img{filter:grayscale(0) brightness(1.2);}
-
-/* Cores de hover das techs */
-.tech-box[title="Java"]:hover{border-color:#00d2ff;box-shadow:0 0 20px rgba(0,210,255,.6);}
-.tech-box[title="C#"]:hover{border-color:#9b4dff;box-shadow:0 0 20px rgba(155,77,255,.6);}
-.tech-box[title="PHP"]:hover{border-color:#777bb3;box-shadow:0 0 20px rgba(119,123,179,.6);}
-.tech-box[title="PostgreSQL"]:hover{border-color:#336791;box-shadow:0 0 20px rgba(51,103,145,.6);}
-.tech-box[title="Spring"]:hover{border-color:#6db33f;box-shadow:0 0 20px rgba(109,179,63,.6);}
-.tech-box[title="Laravel"]:hover{border-color:#ff2d20;box-shadow:0 0 20px rgba(255,45,32,.6);}
-.tech-box[title="SQL"]:hover{border-color:#f29111;box-shadow:0 0 20px rgba(242,145,17,.6);}
-
-/* ===== SECTIONS ===== */
-section{
-  padding:50px 10%;
-  max-width:1300px;
-  margin:auto;
-  scroll-margin-top:90px;
-}
-.section-title{font-size:2.2rem;margin-bottom:25px;font-weight:800;}
-
-.about-box, .experience-box {
-  background:var(--bg-card);
-  padding:40px;
-  border-radius:24px;
-  border:1px solid rgba(255,255,255,.05);
-  color:var(--text-dim);
-  font-size:1.1rem;
-  line-height:1.7;
-}
-
-.experience-box:hover{
-  border-color:var(--accent);
-  box-shadow:0 0 25px rgba(0,210,255,.15);
-}
-.company{color:var(--accent);font-weight:600;}
-.period{font-size:.9rem;color:var(--text-dim);display:block;margin-bottom:15px;}
-
-/* ===== PROJETOS ===== */
-.projetos-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-  gap:25px;
-}
-.card{
-  background:var(--bg-card);
-  padding:30px;
-  border-radius:20px;
-  border:1px solid rgba(255,255,255,.08);
-  transition:.4s;
-  display:flex;
-  flex-direction:column;
-}
-.card:hover{
-  transform:translateY(-8px);
-  border-color:var(--accent);
-}
-.card-top{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  margin-bottom:15px;
-}
-.card p{color:var(--text-dim);margin-bottom:20px;flex-grow:1;}
-.btn-repo{color:var(--accent);text-decoration:none;font-weight:600;}
-
-/* ===== CONTATO ===== */
-.contato-wrapper{display:flex;gap:15px;flex-wrap:wrap;}
-
-footer{
-  padding:40px;text-align:center;
-  color:var(--text-dim);
-  border-top:1px solid rgba(255,255,255,.05);
-}
-
-.reveal{opacity:0;transform:translateY(40px);transition:.8s;}
-.reveal.active{opacity:1;transform:none;}
-
+/* Responsividade */
 @media(max-width:900px){
-  header.hero{flex-direction:column;text-align:center;gap:40px;padding-top:120px;}
-  .icons-grid{grid-template-columns:repeat(4,60px);}
-  .nav-links{display:none;}
+  .nav-links { display: none; }
+  .menu-btn { display: block; }
+  header.hero { flex-direction: column; text-align: center; padding-top: 130px; }
+  .icons-grid { grid-template-columns: repeat(4, 1fr); margin: auto; }
+  .btn-contact { width: 100%; }
 }
 </style>
 </head>
-
 <body>
 
 <nav>
@@ -200,39 +142,47 @@ footer{
     <a href="#projetos">Projetos</a>
     <a href="#contato">Contato</a>
   </div>
+  <div class="menu-btn" id="menuBtn">☰</div>
 </nav>
+
+<div class="menu-overlay" id="menuOverlay"></div>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#inicio">Início</a>
+  <a href="#sobre">Sobre</a>
+  <a href="#experiencia">Experiência</a>
+  <a href="#projetos">Projetos</a>
+  <a href="#contato">Contato</a>
+</div>
 
 <header class="hero" id="inicio">
   <div class="hero-text">
     <div class="small">Desenvolvedor Back-End</div>
     <h2><span>Pedro Amorim</span><br>Portfólio</h2>
     <p id="typing"></p>
-
-    <a href="https://github.com/pedruuxz7" class="btn-contact" target="_blank" rel="noopener noreferrer">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub">
-      <span>Ver GitHub</span>
+    <a href="https://github.com/pedruuxz7" target="_blank" class="btn-contact">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" style="filter: invert(1);">
+      Ver GitHub
     </a>
   </div>
 
   <div class="icons-grid">
-    <div class="tech-box" title="Java"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg"></div>
-    <div class="tech-box" title="C#"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg"></div>
-    <div class="tech-box" title="PHP"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg"></div>
-    <div class="tech-box" title="PostgreSQL"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg"></div>
-    <div class="tech-box" title="Spring"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg"></div>
-    <div class="tech-box" title="Laravel"><img src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Laravel.svg"></div>
-    <div class="tech-box" title="SQL"><img src="https://www.svgrepo.com/show/374093/sql.svg"></div>
+    <div class="tech-box"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg"></div>
+    <div class="tech-box"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg"></div>
+    <div class="tech-box"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg"></div>
+    <div class="tech-box"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg"></div>
+    <div class="tech-box"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg"></div>
+    <div class="tech-box"><img src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Laravel.svg"></div>
+    <div class="tech-box"><img src="https://www.svgrepo.com/show/374093/sql.svg"></div>
   </div>
 </header>
 
 <section id="sobre" class="reveal">
   <h2 class="section-title">Sobre Mim</h2>
   <div class="about-box">
-    Me chamo Pedro Amorim, tenho 18 anos e sou um desenvolvedor iniciante focado em Back-End,
+    Me chamo Pedro Amorim, tenho 18 anos e sou um desenvolvedor iniciante focado em <strong>Back-End</strong>,
     apaixonado por entender como sistemas funcionam por dentro.
     Trabalho principalmente com <strong>Java (Spring e PostgreSQL)</strong>,
-    <strong>C#</strong> e <strong>PHP (Laravel)</strong>, sempre buscando código limpo,
-    escalável e de fácil manutenção.
+    <strong>C#</strong> e <strong>PHP (Laravel)</strong>.
   </div>
 </section>
 
@@ -240,12 +190,9 @@ footer{
   <h2 class="section-title">Experiência</h2>
   <div class="experience-box">
     <h3>Jovem Aprendiz – Desenvolvimento</h3>
-    <span class="company">VS Sistemas de Informação LTDA </span>
+    <span class="company">VS Sistemas de Informação LTDA</span>
     <span class="period">Dezembro de 2025 – Atualmente</span>
-    <p>
-      Atuação no time de desenvolvimento participando da manutenção
-      de sistemas, organização e aplicação de boas práticas de desenvolvimento.
-    </p>
+    <p>Manutenção de sistemas e aplicação de boas práticas de programação no ecossistema empresarial.</p>
   </div>
 </section>
 
@@ -257,8 +204,8 @@ footer{
         <h3>Gerenciamento de Cursos</h3>
         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" width="30">
       </div>
-      <p>CRUD completo em Java integrado com PostgreSQL.</p>
-      <a href="https://github.com/pedruuxz7/GerenciamentoCursos" class="btn-repo" target="_blank">Ver repositório →</a>
+      <p>CRUD completo em Java com PostgreSQL para gestão educacional.</p>
+      <a href="https://github.com/pedruuxz7/GerenciamentoCursos" target="_blank" class="btn-repo">Ver repositório →</a>
     </div>
 
     <div class="card">
@@ -266,8 +213,8 @@ footer{
         <h3>Reserva de Salas</h3>
         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" width="30">
       </div>
-      <p>Sistema de agendamento sem conflito de horários.</p>
-      <a href="https://github.com/pedruuxz7/SistemaReservas" class="btn-repo" target="_blank">Ver repositório →</a>
+      <p>Sistema inteligente de agendamento que evita conflitos de horários.</p>
+      <a href="https://github.com/pedruuxz7/SistemaReservas" target="_blank" class="btn-repo">Ver repositório →</a>
     </div>
 
     <div class="card">
@@ -275,8 +222,8 @@ footer{
         <h3>FinanceControl</h3>
         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" width="30">
       </div>
-      <p>Aplicação desktop para controle financeiro.</p>
-      <a href="https://github.com/pedruuxz7/FinanceControl" class="btn-repo" target="_blank">Ver repositório →</a>
+      <p>Aplicação desktop robusta para controle financeiro pessoal.</p>
+      <a href="https://github.com/pedruuxz7/FinanceControl" target="_blank" class="btn-repo">Ver repositório →</a>
     </div>
 
     <div class="card">
@@ -284,8 +231,8 @@ footer{
         <h3>Gerador de Senhas</h3>
         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" width="30">
       </div>
-      <p>Gerador e analisador de segurança de senhas.</p>
-      <a href="https://github.com/pedruuxz7/Gerador-e-Analisador-de-Senhas" class="btn-repo" target="_blank">Ver repositório →</a>
+      <p>Gerador e analisador de segurança de senhas com critérios customizáveis.</p>
+      <a href="https://github.com/pedruuxz7/Gerador-e-Analisador-de-Senhas" target="_blank" class="btn-repo">Ver repositório →</a>
     </div>
   </div>
 </section>
@@ -294,41 +241,53 @@ footer{
   <h2 class="section-title">Contato</h2>
   <div class="contato-wrapper">
     <a href="https://mail.google.com/mail/?view=cm&to=poapamorim@gmail.com" target="_blank" class="btn-contact">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg" alt="Gmail">
-      <span>Email</span>
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg">
+      Email
     </a>
-
     <a href="https://www.linkedin.com/in/pedrootavio8544/" target="_blank" class="btn-contact">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" alt="LinkedIn">
-      <span>LinkedIn</span>
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg">
+      LinkedIn
     </a>
-
-    <a href="CurriculoPedroAmorim.pdf" class="btn-contact" download>
-     <img src="pdf.png" alt="pdf">
-      <span>Baixar Currículo</span>
+    <a href="CurriculoPedroAmorim.pdf" download class="btn-contact">
+      <img src="pdf.png" alt="">
+       Baixar Currículo
     </a>
   </div>
 </section>
 
 <footer>
-  © 2025 Pedro Amorim. Desenvolvido com foco em performance.
+  © 2026 Pedro Amorim — Desenvolvido com foco em performance.
 </footer>
 
 <script>
-const txt="Construindo soluções escaláveis.";
-let i=0;
-function type(){
-  if(i<txt.length){
-    document.getElementById("typing").innerHTML+=txt.charAt(i);
-    i++;setTimeout(type,100);
+/* Menu Logic */
+const btn = document.getElementById("menuBtn");
+const menu = document.getElementById("mobileMenu");
+const overlay = document.getElementById("menuOverlay");
+
+btn.onclick = () => { menu.classList.toggle("active"); overlay.classList.toggle("active"); };
+overlay.onclick = () => { menu.classList.remove("active"); overlay.classList.remove("active"); };
+document.querySelectorAll(".mobile-menu a").forEach(link => {
+  link.onclick = () => { menu.classList.remove("active"); overlay.classList.remove("active"); };
+});
+
+/* Typing Effect */
+const txt = "Construindo soluções escaláveis e eficientes.";
+let i = 0;
+function type() {
+  if (i < txt.length) {
+    document.getElementById("typing").innerHTML += txt.charAt(i);
+    i++;
+    setTimeout(type, 80);
   }
 }
-type();
+window.onload = type;
 
-const reveals=document.querySelectorAll(".reveal");
-window.addEventListener("scroll",()=>{
-  reveals.forEach(el=>{
-    if(el.getBoundingClientRect().top < window.innerHeight-100){
+/* Reveal on Scroll */
+const reveals = document.querySelectorAll(".reveal");
+window.addEventListener("scroll", () => {
+  reveals.forEach(el => {
+    if (el.getBoundingClientRect().top < window.innerHeight - 100) {
       el.classList.add("active");
     }
   });
