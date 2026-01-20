@@ -1,387 +1,327 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pedro Amorim | Portfólio</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pedro Amorim | Portfólio</title>
+
 <link rel="icon" type="image/png" href="favicon.png">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
 
-  <style>
-    * {
-      margin: 0; padding: 0; box-sizing: border-box;
-      font-family: "Poppins", sans-serif;
-      scroll-behavior: smooth;
-    }
 
-    body {
-      background: linear-gradient(180deg, #0a0e17, #0f1624);
-      color: #dce3f0;
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
+<style>
+:root{
+  --bg-main: radial-gradient(circle at top left,#0b1220,#05070a 70%);
+  --bg-card:#0d1117;
+  --accent:#00d2ff;
+  --accent-glow:rgba(0,210,255,.35);
+  --text:#fff;
+  --text-dim:#94a3b8;
+}
 
-    nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      backdrop-filter: blur(12px);
-      background: rgba(10, 15, 25, 0.6);
-      padding: 15px 50px;
-      z-index: 100;
-      border-bottom: 1px solid rgba(255,255,255,0.1);
-      transition: background 0.3s ease;
-    }
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:"Inter",sans-serif;
+}
 
-    nav.scrolled {
-      background: rgba(10, 15, 25, 0.9);
-    }
+html{scroll-behavior:smooth;}
+body{background:var(--bg-main);color:var(--text);overflow-x:hidden;}
 
-    nav h1 {
-      color: #7aa6ff;
-      font-size: 1.3rem;
-      font-weight: 600;
-      letter-spacing: 1px;
-    }
+/* ===== NAV ===== */
+nav{
+  position:fixed;top:0;width:100%;z-index:1000;
+  display:flex;justify-content:space-between;align-items:center;
+  padding:20px 8%;
+  background:rgba(5,7,10,.75);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(255,255,255,.05);
+}
+nav h1{font-size:1.5rem;font-weight:800;color:var(--accent);}
+.nav-links{display:flex;gap:28px;}
+.nav-links a{color:var(--text-dim);text-decoration:none;transition:.3s;}
+.nav-links a:hover{color:var(--accent);}
 
-    .nav-links {
-      display: flex;
-      gap: 25px;
-    }
+/* ===== HERO ===== */
+header.hero{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:100px 10% 0;
+}
 
-    .nav-links a {
-      text-decoration: none;
-      color: #dce3f0;
-      font-weight: 500;
-      transition: 0.3s;
-    }
+.hero-text{max-width:520px;}
+.hero-text .small{
+  font-size:1.1rem;color:var(--accent);
+  text-transform:uppercase;letter-spacing:2px;margin-bottom:10px;
+}
+.hero-text h2{font-size:3.8rem;line-height:1.1;}
+.hero-text span{color:var(--accent);text-shadow:0 0 30px var(--accent-glow);}
 
-    .nav-links a:hover {
-      color: #7aa6ff;
-      text-shadow: 0 0 8px #1e90ff;
-    }
+#typing{margin-top:18px;font-size:1.4rem;color:var(--text-dim);min-height:1.5em;}
+#typing::after{content:'|';margin-left:5px;color:var(--accent);animation:blink .7s infinite;}
+@keyframes blink{50%{opacity:0;}}
 
-    header.hero {
-      text-align: center;
-      padding: 140px 20px 100px;
-      background: linear-gradient(135deg, #0b111d, #121d2e);
-      box-shadow: 0 4px 15px rgba(0,0,0,0.6);
-      color: #fff;
-      animation: fadeIn 1.2s ease;
-    }
+/* ===== ICONS ===== */
+.icons-grid{display:grid;grid-template-columns:repeat(4,75px);gap:20px;}
+.tech-box{
+  width:75px;height:75px;background:#0d1117;border-radius:18px;
+  display:flex;align-items:center;justify-content:center;
+  border:2px solid rgba(255,255,255,.1);transition:.4s;
+}
+.tech-box img{width:38px;filter:grayscale(.2);transition:.4s;}
+.tech-box:hover{transform:translateY(-8px) scale(1.1);}
+.tech-box:hover img{filter:grayscale(0) brightness(1.2);}
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(-20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+.tech-box[title="Java"]:hover{border-color:#00d2ff;box-shadow:0 0 20px rgba(0,210,255,.6);}
+.tech-box[title="C#"]:hover{border-color:#9b4dff;box-shadow:0 0 20px rgba(155,77,255,.6);}
+.tech-box[title="PHP"]:hover{border-color:#777bb3;box-shadow:0 0 20px rgba(119,123,179,.6);}
+.tech-box[title="PostgreSQL"]:hover{border-color:#336791;box-shadow:0 0 20px rgba(51,103,145,.6);}
+.tech-box[title="Spring"]:hover{border-color:#6db33f;box-shadow:0 0 20px rgba(109,179,63,.6);}
+.tech-box[title="Laravel"]:hover{border-color:#ff2d20;box-shadow:0 0 20px rgba(255,45,32,.6);}
+.tech-box[title="SQL"]:hover{border-color:#f29111;box-shadow:0 0 20px rgba(242,145,17,.6);}
 
-    header.hero h2 {
-      font-size: 3rem;
-      margin-bottom: 10px;
-      color: #7aa6ff;
-    }
+/* ===== SECTIONS ===== */
+section{
+  padding:50px 10%;
+  max-width:1300px;
+  margin:auto;
+  scroll-margin-top:90px;
+}
+.section-title{font-size:2.2rem;margin-bottom:25px;font-weight:800;}
 
-    header.hero p {
-      font-size: 1.3rem;
-      color: #b5c0d0;
-      min-height: 30px;
-    }
+/* ===== SOBRE ===== */
+.about-box{
+  background:var(--bg-card);
+  padding:40px;
+  border-radius:24px;
+  border:1px solid rgba(255,255,255,.05);
+  color:var(--text-dim);
+  font-size:1.1rem;
+  line-height:1.7;
+}
 
-    .icons {
-      display: flex;
-      justify-content: center;
-      gap: 25px;
-      margin-top: 30px;
-      flex-wrap: wrap;
-    }
+/* ===== EXPERIÊNCIA ===== */
+.experience-box{
+  background:var(--bg-card);
+  padding:40px;
+  border-radius:24px;
+  border:1px solid rgba(255,255,255,.05);
+  transition:.4s;
+}
+.experience-box:hover{
+  border-color:var(--accent);
+  box-shadow:0 0 25px rgba(0,210,255,.15);
+}
+.company{color:var(--accent);font-weight:600;}
+.period{font-size:.9rem;color:var(--text-dim);display:block;margin-bottom:15px;}
 
-    .icon {
-      width: 60px;
-      transition: transform 0.3s ease, filter 0.3s ease;
-      filter: brightness(0.8);
-    }
+/* ===== PROJETOS ===== */
+.projetos-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:25px;
+}
+.card{
+  background:var(--bg-card);
+  padding:30px;
+  border-radius:20px;
+  border:1px solid rgba(255,255,255,.08);
+  transition:.4s;
+  display:flex;
+  flex-direction:column;
+}
+.card:hover{
+  transform:translateY(-8px);
+  border-color:var(--accent);
+}
+.card-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:15px;
+}
+.card p{color:var(--text-dim);margin-bottom:20px;flex-grow:1;}
+.btn-repo{color:var(--accent);text-decoration:none;font-weight:600;}
 
-    .icon:hover {
-      transform: scale(1.15);
-      filter: brightness(1.3) drop-shadow(0 0 10px #1e90ff);
-    }
+/* ===== CONTATO ===== */
+.contato-wrapper{display:flex;gap:15px;flex-wrap:wrap;}
+.btn-contact{
+  background:var(--bg-card);
+  padding:12px 25px;
+  border-radius:50px;
+  color:#fff;
+  text-decoration:none;
+  border:1px solid rgba(255,255,255,.1);
+  transition:.4s;
+}
+.btn-contact:hover{background:var(--accent);color:#000;transform:scale(1.05);}
 
-    section {
-      padding: 80px 20px;
-      max-width: 950px;
-      margin: auto;
-      animation: fadeUp 0.8s ease;
-    }
+footer{
+  padding:40px;text-align:center;
+  color:var(--text-dim);
+  border-top:1px solid rgba(255,255,255,.05);
+}
 
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+.reveal{opacity:0;transform:translateY(40px);transition:.8s;}
+.reveal.active{opacity:1;transform:none;}
 
-    section h2 {
-      text-align: center;
-      margin-bottom: 30px;
-      font-size: 2rem;
-      color: #7aa6ff;
-      border-bottom: 2px solid #1e90ff40;
-      display: inline-block;
-      padding-bottom: 8px;
-    }
-
-    section p {
-      text-align: justify;
-      font-size: 1.1rem;
-      color: #bfc6d1;
-      line-height: 1.8;
-    }
-
-    p strong:hover {
-      color: #7aa6ff;
-      text-shadow: 0 0 10px #1e90ff;
-      transition: 0.3s;
-    }
-
-    .projetos-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 25px;
-      padding-top: 25px;
-    }
-
-    .card {
-      background: rgba(17, 21, 28, 0.85);
-      padding: 25px;
-      border-radius: 14px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
-      border: 1px solid rgba(30,144,255,0.2);
-      transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 10px 20px rgba(0,0,0,0.6);
-      border: 1px solid #1e90ff80;
-    }
-
-    .card h3 {
-      color: #7aa6ff;
-      margin-bottom: 10px;
-    }
-    .card p {
-      text-align: center;
-      line-height: 1.5;
-      color: #bfc6d1;
-      margin-bottom: 15px;
-    }
-
-    .card a {
-      display: inline-block;
-      text-decoration: none;
-      color: #fff;
-      background: linear-gradient(135deg, #1e90ff, #0066cc);
-      padding: 10px 16px;
-      border-radius: 8px;
-      transition: background 0.3s ease, transform 0.2s ease;
-      font-weight: 500;
-    }
-
-    .card a:hover {
-      background: linear-gradient(135deg, #4aa3ff, #007bff);
-      transform: scale(1.05);
-    }
-
-    .contato-btns {
-      display: flex;
-      justify-content: center;
-      gap: 25px;
-      margin-top: 30px;
-      flex-wrap: wrap;
-    }
-
-    .btn-social {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      text-decoration: none;
-      color: #dce3f0;
-      font-weight: 500;
-      font-size: 1.05rem;
-      transition: 0.3s ease;
-      padding: 10px 14px;
-      border-radius: 10px;
-      border: 1px solid transparent;
-    }
-
-    .btn-social img {
-      width: 30px;
-      height: 30px;
-      transition: 0.3s ease;
-    }
-
-    .btn-social:hover {
-      transform: translateY(-3px);
-      color: #7aa6ff;
-      border-color: #1e90ff80;
-      box-shadow: 0 0 10px #1e90ff40;
-    }
-
-    footer {
-      text-align: center;
-      padding: 30px;
-      background: #0a0d13;
-      font-size: 0.9rem;
-      color: #8a94a6;
-      border-top: 1px solid #1f2a3b;
-      margin-top: 50px;
-    }
-
-    @media (max-width: 768px) {
-      .btn-social img { width: 26px; height: 26px; }
-
-      nav {
-        flex-direction: column;
-        padding: 10px 20px;
-      }
-
-      .nav-links {
-        flex-wrap: wrap;
-        gap: 15px;
-        justify-content: center;
-      }
-
-      header.hero h2 { font-size: 2.3rem; }
-      section { padding: 60px 15px; }
-    }
-  </style>
+@media(max-width:900px){
+  header.hero{flex-direction:column;text-align:center;gap:40px;padding-top:120px;}
+  .icons-grid{grid-template-columns:repeat(4,60px);}
+  .nav-links{display:none;}
+}
+</style>
 </head>
+
 <body>
 
-  <nav>
-    <h1>Pedro Amorim</h1>
-    <div class="nav-links">
-      <a href="#inicio">Início</a>
-      <a href="#sobre">Sobre Mim</a>
-      <a href="#projetos">Projetos</a>
-      <a href="#contato">Contato</a>
-    </div>
-  </nav>
+<nav>
+  <h1>Pedro Amorim</h1>
+  <div class="nav-links">
+    <a href="#inicio">Início</a>
+    <a href="#sobre">Sobre</a>
+    <a href="#experiencia">Experiência</a>
+    <a href="#projetos">Projetos</a>
+    <a href="#contato">Contato</a>
+  </div>
+</nav>
 
-  <header class="hero" id="inicio">
-    <h2>Pedro Otávio Amorim</h2>
+<header class="hero" id="inicio">
+  <div class="hero-text">
+    <div class="small">Desenvolvedor Back-End</div>
+    <h2><span>Pedro Amorim</span><br>Portfólio</h2>
     <p id="typing"></p>
-
-    <div class="icons">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java" class="icon" />
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" alt="C#" class="icon" />
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" alt="PHP" class="icon" />
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="PostgreSQL" class="icon" />
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" alt="Spring" class="icon" />
-      <img src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Laravel.svg" alt="Laravel" class="icon" />
-      <img src="https://www.svgrepo.com/show/374093/sql.svg" alt="SQL" class="icon" />
-    </div>
-  </header>
-
-  <section id="sobre">
-    <h2>Sobre Mim</h2>
-    <p>
-      Me chamo Pedro Amorim, tenho 17 anos e sou desenvolvedor apaixonado por tecnologia e criação de soluções práticas.
-Trabalho com Java (PostgreSQL), C# e PHP com Laravel, desenvolvendo sistemas e aplicações com foco em desempenho e organização.
-
-Gosto de desafios que me façam evoluir como programador e acredito que um bom código é aquele que é claro, funcional e fácil de manter.
-
-Busco crescer como desenvolvedor backend, sempre aprendendo e aprimorando minhas habilidades em cada novo projeto
-      <br><br>
-      Meu objetivo é evoluir constantemente como desenvolvedor, criando soluções <strong>eficientes, organizadas e escaláveis</strong>,
-      sempre aprendendo novas tecnologias e aplicando boas práticas de programação.
-      <br><br>
-      Sou proativo, curioso e adoro desafios que me permitem melhorar minhas habilidades e entregar projetos de qualidade.
-    </p>
-  </section>
-
-  <section id="projetos">
-    <h2>Projetos</h2>
-    <div class="projetos-container">
-      <div class="card">
-        <div style="display:flex;justify-content:space-between;align-items:center;">
-          <h3>Gerenciamento de Cursos</h3>
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java" style="width:30px;height:30px;">
-        </div>
-        <p>Aplicação em Java com PostgreSQL para gerenciar e cadastrar cursos, alunos e professores, com exportação de relatórios em PDF.</p>
-        <a href="https://github.com/pedruuxz7/GerenciamentoCursos" target="_blank">Ver no GitHub</a>
-      </div>
-
-      <div class="card">
-        <div style="display:flex;justify-content:space-between;align-items:center;">
-          <h3>Sistema de Reservas de Salas</h3>
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java" style="width:30px;height:30px;">
-        </div>
-        <p>Aplicação em Java com PostgreSQL que permite cadastrar usuários, salas e realizar reservas, evitando conflitos de horário entre reservas.</p>
-        <a href="https://github.com/pedruuxz7/SistemaReservas" target="_blank">Ver no GitHub</a>
-      </div>
-
-      <div class="card">
-        <div style="display:flex;justify-content:space-between;align-items:center;">
-          <h3>FinanceControl</h3>
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" alt="C#" style="width:30px;height:30px;">
-        </div>
-        <p>Sistema de controle financeiro pessoal em C# e SQLite, com cadastro de receitas e despesas, cálculo de saldo e arquitetura em camadas.</p>
-        <a href="https://github.com/pedruuxz7/FinanceControl" target="_blank">Ver no GitHub</a>
-      </div>
-
-      <!-- Novo projeto PHP -->
-      <div class="card">
-        <div style="display:flex;justify-content:space-between;align-items:center;">
-          <h3>Gerador e Analisador de Senhas</h3>
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" alt="PHP" style="width:30px;height:30px;">
-        </div>
-        <p>Projeto em PHP que cria senhas fortes e analisa a segurança delas, mostrando se estão fracas, médias ou seguras, com dicas pra deixar a senha mais protegida.</p>
-        <a href="https://github.com/pedruuxz7/Gerador-e-Analisador-de-Senhas" target="_blank">Ver no GitHub</a>
-      </div>
-    </div>
-  </section>
-
- <section id="contato">
-  <h2>Contato</h2>
-  <div class="contato-btns">
-    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=poapamorim@gmail.com" target="_blank" class="btn-social">
-      <img src="gmail.png" alt="Gmail" /> Gmail
-    </a>
-    <a href="https://github.com/pedruuxz7" target="_blank" class="btn-social">
-      <img src="github.png" alt="GitHub" /> GitHub
-    </a>
-    <a href="CurriculoPedroAmorim.pdf" download class="btn-social">
-      <img src="pdf.png" alt="PDF" /> Baixar Currículo
-    </a>
   </div>
 
-  <p style="text-align:center; margin-top:15px; font-size:0.95rem; color:#a3adc2;">
-    Ou envie diretamente: <strong>poapamorim@gmail.com</strong>
-  </p>
+  <div class="icons-grid">
+    <div class="tech-box" title="Java"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg"></div>
+    <div class="tech-box" title="C#"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg"></div>
+    <div class="tech-box" title="PHP"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg"></div>
+    <div class="tech-box" title="PostgreSQL"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg"></div>
+    <div class="tech-box" title="Spring"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg"></div>
+    <div class="tech-box" title="Laravel"><img src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Laravel.svg"></div>
+    <div class="tech-box" title="SQL"><img src="https://www.svgrepo.com/show/374093/sql.svg"></div>
+  </div>
+</header>
+
+<section id="sobre" class="reveal">
+  <h2 class="section-title">Sobre Mim</h2>
+  <div class="about-box">
+    Me chamo Pedro Amorim, tenho 18 anos e sou um desenvolvedor iniciante focado em Back-End,
+    apaixonado por entender como sistemas funcionam por dentro.
+    Trabalho principalmente com <strong>Java (Spring e PostgreSQL)</strong>,
+    <strong>C#</strong> e <strong>PHP (Laravel)</strong>, sempre buscando código limpo,
+    escalável e de fácil manutenção.
+  </div>
 </section>
 
-  <footer>
-    <p>&copy; 2025 Pedro Amorim. Todos os direitos reservados.</p>
-  </footer>
+<section id="experiencia" class="reveal">
+  <h2 class="section-title">Experiência</h2>
+  <div class="experience-box">
+    <h3>Jovem Aprendiz – Desenvolvimento</h3>
+    <span class="company">VS Sistemas de Informação LTDA </span>
+    <span class="period">Dezembro de 2025 – Atualmente</span>
+    <p>
+      Atuação no time de desenvolvimento participando da manutenção
+      de sistemas, organização e aplicação de boas práticas de desenvolvimento.
+    </p>
+  </div>
+</section>
 
-  <script>
-    const texto = "Desenvolvedor Back-End";
-    let i = 0;
-    function digitar() {
-      if (i < texto.length) {
-        document.getElementById("typing").innerHTML += texto.charAt(i);
-        i++;
-        setTimeout(digitar, 100);
-      }
+<section id="projetos" class="reveal">
+  <h2 class="section-title">Meus Projetos</h2>
+  <div class="projetos-grid">
+
+    <div class="card">
+      <div class="card-top">
+        <h3>Gerenciamento de Cursos</h3>
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" width="30">
+      </div>
+      <p>CRUD completo em Java integrado com PostgreSQL.</p>
+      <a href="https://github.com/pedruuxz7/GerenciamentoCursos" class="btn-repo" target="_blank">Ver repositório →</a>
+    </div>
+
+    <div class="card">
+      <div class="card-top">
+        <h3>Reserva de Salas</h3>
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" width="30">
+      </div>
+      <p>Sistema de agendamento sem conflito de horários.</p>
+      <a href="https://github.com/pedruuxz7/SistemaReservas" class="btn-repo" target="_blank">Ver repositório →</a>
+    </div>
+
+    <div class="card">
+      <div class="card-top">
+        <h3>FinanceControl</h3>
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" width="30">
+      </div>
+      <p>Aplicação desktop para controle financeiro.</p>
+      <a href="https://github.com/pedruuxz7/FinanceControl" class="btn-repo" target="_blank">Ver repositório →</a>
+    </div>
+
+    <div class="card">
+      <div class="card-top">
+        <h3>Gerador de Senhas</h3>
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" width="30">
+      </div>
+      <p>Gerador e analisador de segurança de senhas.</p>
+      <a href="https://github.com/pedruuxz7/Gerador-e-Analisador-de-Senhas" class="btn-repo" target="_blank">Ver repositório →</a>
+    </div>
+
+  </div>
+</section>
+
+<section id="contato" class="reveal">
+  <h2 class="section-title">Contato</h2>
+  <div class="contato-wrapper">
+
+    <a href="https://mail.google.com/mail/?view=cm&to=poapamorim@gmail.com" class="btn-contact">
+      <img src="gmail.png" alt="Gmail">
+      <span>Email</span>
+    </a>
+
+    <a href="https://github.com/pedruuxz7" class="btn-contact" target="_blank">
+      <img src="github.png" alt="GitHub">
+      <span>GitHub</span>
+    </a>
+
+    <a href="CurriculoPedroAmorim.pdf" class="btn-contact" download>
+      <img src="pdf.png" alt="Currículo">
+      <span>Currículo</span>
+    </a>
+
+  </div>
+</section>
+
+
+<footer>
+  © 2025 Pedro Amorim. Desenvolvido com foco em performance.
+</footer>
+
+<script>
+const txt="Construindo soluções escaláveis.";
+let i=0;
+function type(){
+  if(i<txt.length){
+    document.getElementById("typing").innerHTML+=txt.charAt(i);
+    i++;setTimeout(type,100);
+  }
+}
+type();
+
+const reveals=document.querySelectorAll(".reveal");
+window.addEventListener("scroll",()=>{
+  reveals.forEach(el=>{
+    if(el.getBoundingClientRect().top < window.innerHeight-100){
+      el.classList.add("active");
     }
-    window.onload = digitar;
+  });
+});
+</script>
 
-    window.addEventListener('scroll', () => {
-      const nav = document.querySelector('nav');
-      nav.classList.toggle('scrolled', window.scrollY > 50);
-    });
-  </script>
 </body>
 </html>
