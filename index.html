@@ -8,6 +8,14 @@
 <link rel="icon" type="image/png" href="favicon.png">
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KH57S9KMZ6"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-KH57S9KMZ6');
+</script>
+
 <style>
 :root {
   --bg-main: #05070a;
@@ -19,7 +27,6 @@
   --border: rgba(255, 255, 255, 0.08);
 }
 
-/* Reset e Base */
 * { margin:0; padding:0; box-sizing:border-box; font-family:"Plus Jakarta Sans", sans-serif; }
 html { scroll-behavior: smooth; }
 body { 
@@ -29,7 +36,6 @@ body {
     background-image: radial-gradient(circle at 0% 0%, #0b1220 0%, transparent 50%);
 }
 
-/* Navegação Refinada */
 nav {
   position: fixed; top: 0; width: 100%; z-index: 1000;
   display: flex; justify-content: space-between; align-items: center;
@@ -46,7 +52,6 @@ nav h1 { font-size: 1.4rem; font-weight: 800; background: linear-gradient(to rig
 
 .menu-btn { display: none; font-size: 1.8rem; cursor: pointer; color: var(--accent); }
 
-/* Menu Mobile (Sua lógica original com novo visual) */
 .menu-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.6); backdrop-filter: blur(10px); opacity: 0; pointer-events: none; transition: 0.4s; z-index: 998; }
 .menu-overlay.active { opacity: 1; pointer-events: all; }
 
@@ -54,7 +59,6 @@ nav h1 { font-size: 1.4rem; font-weight: 800; background: linear-gradient(to rig
 .mobile-menu.active { transform: translateY(0); }
 .mobile-menu a { font-size: 1.5rem; color: #fff; text-decoration: none; font-weight: 700; }
 
-/* Hero Section */
 header.hero {
   min-height: 100vh; display: flex; align-items: center; justify-content: space-between;
   padding: 120px 10% 60px; gap: 40px;
@@ -68,7 +72,6 @@ header.hero {
 #typing::after { content:'|'; margin-left:5px; color:var(--accent); animation:blink .7s infinite; }
 @keyframes blink { 50% { opacity: 0; } }
 
-/* Grid de Tecnologias */
 .icons-grid { display: grid; grid-template-columns: repeat(4, 80px); gap: 15px; }
 .tech-box { 
     width: 80px; height: 80px; background: var(--bg-card); border-radius: 18px;
@@ -78,7 +81,6 @@ header.hero {
 .tech-box:hover { transform: translateY(-8px); border-color: var(--accent); box-shadow: 0 10px 20px var(--accent-glow); }
 .tech-box img { width: 40px; }
 
-/* Seções Gerais */
 section { padding: 80px 10%; max-width: 1300px; margin: auto; scroll-margin-top: 100px; }
 .section-title { font-size: 2rem; margin-bottom: 30px; font-weight: 800; display: flex; align-items: center; gap: 15px; }
 .section-title::after { content: ""; height: 1px; background: var(--border); flex: 1; }
@@ -91,7 +93,6 @@ section { padding: 80px 10%; max-width: 1300px; margin: auto; scroll-margin-top:
 .company { color: var(--accent); display: block; font-weight: 600; margin-bottom: 5px; }
 .period { font-size: 0.85rem; display: block; margin-bottom: 15px; opacity: 0.8; }
 
-/* Grid de Projetos */
 .projetos-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
 .card { 
     background: var(--bg-card); padding: 30px; border-radius: 20px; 
@@ -103,7 +104,6 @@ section { padding: 80px 10%; max-width: 1300px; margin: auto; scroll-margin-top:
 .card p { flex-grow: 1; color: var(--text-dim); margin-bottom: 20px; font-size: 0.95rem; }
 .btn-repo { color: var(--accent); text-decoration: none; font-weight: 600; font-size: 0.9rem; }
 
-/* Botões Estilizados */
 .btn-contact {
   display: inline-flex; align-items: center; justify-content: center; gap: 12px;
   background: var(--bg-card); padding: 12px 24px; border-radius: 12px;
@@ -114,14 +114,11 @@ section { padding: 80px 10%; max-width: 1300px; margin: auto; scroll-margin-top:
 
 .contato-wrapper { display: flex; gap: 15px; flex-wrap: wrap; }
 
-/* Footer */
 footer { padding: 50px; text-align: center; color: var(--text-dim); font-size: 0.9rem; border-top: 1px solid var(--border); }
 
-/* Reveal Animation */
 .reveal { opacity: 0; transform: translateY(30px); transition: 0.8s; }
 .reveal.active { opacity: 1; transform: none; }
 
-/* Responsividade */
 @media(max-width:900px){
   .nav-links { display: none; }
   .menu-btn { display: block; }
@@ -256,11 +253,11 @@ footer { padding: 50px; text-align: center; color: var(--text-dim); font-size: 0
 </section>
 
 <footer>
-  © 2026 Pedro Amorim — Desenvolvido com foco em performance.
+  © 2026 - Pedro Amorim
 </footer>
 
 <script>
-/* Menu Logic */
+// Mobile menu: simples, sem dependência
 const btn = document.getElementById("menuBtn");
 const menu = document.getElementById("mobileMenu");
 const overlay = document.getElementById("menuOverlay");
@@ -271,7 +268,7 @@ document.querySelectorAll(".mobile-menu a").forEach(link => {
   link.onclick = () => { menu.classList.remove("active"); overlay.classList.remove("active"); };
 });
 
-/* Typing Effect */
+// Typing: roda uma vez no load
 const txt = "Construindo soluções escaláveis e eficientes.";
 let i = 0;
 function type() {
@@ -283,7 +280,7 @@ function type() {
 }
 window.onload = type;
 
-/* Reveal on Scroll */
+// Reveal: anima entrada conforme scroll
 const reveals = document.querySelectorAll(".reveal");
 window.addEventListener("scroll", () => {
   reveals.forEach(el => {
